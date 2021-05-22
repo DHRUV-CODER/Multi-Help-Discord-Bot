@@ -9,9 +9,10 @@ class Covid(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def covid(self, ctx, country="WorldWide"):
-        url = f'https://www.worldometers.info/coronavirus/country/{country}'
-
+    async def covid(self, ctx, *,country="WorldWide"):
+        
+        url = f'https://www.worldometers.info/coronavirus/country/{country.replace(" ","-")}'
+        
         if country == "WorldWide":
             url = "https://www.worldometers.info/coronavirus/"
         else:
@@ -23,7 +24,10 @@ class Covid(commands.Cog):
         cases = soup.find_all('div', class_='maincounter-number')
         links = soup.find('div', {'style': 'display:inline'})
         latest_updated = soup.find('div', class_='news_date')
-        last_updated = latest_updated.text
+        try:
+            last_updated = latest_updated.text
+        except:
+            last_updated = "Not Provided"
 
         data = []
         for i in cases:

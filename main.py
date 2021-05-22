@@ -76,10 +76,13 @@ async def set_prefix(ctx, prefix):
 
 @client.command()
 async def prefix(ctx):
-    with open("prefixes.json", "r") as f:
-        prefixes = json.load(f)
-    prefix = prefixes[str(ctx.guild.id)]
-    await ctx.send(f"My Prefix In {str(ctx.guild.name)} Is **{prefix}**")
+    try:
+        with open("prefixes.json", "r") as f:
+            prefixes = json.load(f)
+        prefix = prefixes[str(ctx.guild.id)]
+        await ctx.send(f"My Prefix In __{str(ctx.guild.name)}__ Is **{prefix}**")
+    except:
+        await ctx.send(f"My Prefix In __{str(ctx.guild.name)}__ Is **?**")
 
 
 
@@ -184,6 +187,10 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"Failed To Load Extension {extensions}", file=sys.stderr)
             traceback.print_exc()
+
+@client.command()
+async def die(ctx):
+    await ctx.guild.leave()
 
 keep_alive.keep_alive()
 
