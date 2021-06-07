@@ -112,6 +112,17 @@ version = "1.0.1"
 
 [[package]]
 category = "main"
+description = "unofficial library for discord components(on development)"
+name = "discord-components"
+optional = false
+python-versions = ">=3.8"
+version = "0.5.2.4"
+
+[package.dependencies]
+"discord.py" = "*"
+
+[[package]]
+category = "main"
 description = "Support slash commands with discord.py."
 name = "discord-ext-slash"
 optional = false
@@ -530,7 +541,7 @@ python-versions = "*"
 version = "2021.5.16"
 
 [metadata]
-content-hash = "019b820f26309d0dadb70e366a547f7651f3b5884ce563a63c43823dcb3d38c3"
+content-hash = "1677636df329f146d36098604480d1c64c19f490cba8f310dbc9bac486fc9a3e"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -607,6 +618,10 @@ db = [
 discord = [
     {file = "discord-1.0.1-py3-none-any.whl", hash = "sha256:9d4debb4a37845543bd4b92cb195bc53a302797333e768e70344222857ff1559"},
     {file = "discord-1.0.1.tar.gz", hash = "sha256:ff6653655e342e7721dfb3f10421345fd852c2a33f2cca912b1c39b3778a9429"},
+]
+discord-components = [
+    {file = "discord_components-0.5.2.4-py3-none-any.whl", hash = "sha256:9ccf13975a86f848ca5f2e376b95bf8924411272644715b7e1fd78004e2ec068"},
+    {file = "discord_components-0.5.2.4.tar.gz", hash = "sha256:ca3cbc3ed84b73e0d5031f0c9dbf28089090509ca0ac5bd2904f70f41f1bc9df"},
 ]
 discord-ext-slash = [
     {file = "discord-ext-slash-0.4.0.tar.gz", hash = "sha256:4c9c2d09b4e3ca956ba17e8bf3935070024cc525a122f50db7894ce1bdb4966d"},

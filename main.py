@@ -13,6 +13,8 @@ import random
 import time
 from discord.ext.commands import when_mentioned_or
 from prsaw import RandomStuff
+from discord_components import DiscordComponents, Button, ButtonStyle, InteractionType
+import asyncio 
 rs = RandomStuff(async_mode=True)
 intents = discord.Intents(messages=True,
                           guilds=True,
@@ -141,13 +143,12 @@ async def on_ready():
     #     nos = len(guild.members)
     #     owner = str(guild.owner)
     #     print(f"Id = {guild_id} , Name = {guild_name}, Nos = {nos} , Owner {owner}")
-
+    DiscordComponents(client)
     print("On Ready Function Working")
     await client.change_presence(activity=discord.Activity(
         status=discord.Status.idle,
         type=discord.ActivityType.watching,
         name=f"{len(set(client.users))} Members & {len(client.guilds)} Servers"
-        # name=f"6867 Members & 45 Servers"
     ))
     print('Guild Function Working')
 
@@ -163,6 +164,8 @@ async def _upvote(ctx):  # Defines a new "context" (ctx) command called "ping."
     await ctx.send(
         "Thnx in Advance\n\n**https://discordbotlist.com/bots/hellothere/upvote**\n\n**https://top.gg/bot/790592850588336151/vote**"
     )
+
+
 
 
 initial_extensions = [

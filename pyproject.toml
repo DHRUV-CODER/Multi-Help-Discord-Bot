@@ -21,6 +21,7 @@ pyshorteners = "^1.0.1"
 prsaw = "^0.2.0"
 DiscordUtils = "^1.2.8"
 lxml = "^4.6.3"
+discord-components = "^0.5.2"
 
 [tool.poetry.dev-dependencies]
 

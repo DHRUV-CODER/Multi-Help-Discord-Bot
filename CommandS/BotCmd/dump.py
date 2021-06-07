@@ -9,7 +9,8 @@ import json
 import random 
 import aiohttp
 from aiohttp import ClientSession
-
+from discord_components import DiscordComponents, Button, ButtonStyle, InteractionType
+import asyncio
 class Dump(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -201,6 +202,45 @@ class Dump(commands.Cog):
         places = names[f'{ctx.author.id}'][0]['from']
         await ctx.send(f'Name = {name}\nClass = {classs}\nplace = {places}')
 
+    @commands.command()
+    async def upvote(self,ctx):
+
+        await ctx.send(
+            "**Thnx For Voting in Advance**",
+            components=[[
+                Button(style=ButtonStyle.URL, label="UpVote on DBL",url="https://discordbotlist.com/bots/hellothere/upvote"),
+                Button(style=ButtonStyle.URL, label="UpVote on Top.gg",url="https://top.gg/bot/790592850588336151/vote"),
+            ]])
+            
+
+    @commands.command()
+    async def simp(self,ctx):
+
+        m = await ctx.send(
+            "```glsl\nYou:- Hi\nMe:-\n```",
+            components=[[
+                Button(style=ButtonStyle.red, label="Do You love Me ??",emoji="💗",disabled=True),
+                Button(style=ButtonStyle.green, label="Yes I Do",),
+            ]])
+        def check(res):
+            return ctx.author == res.user and res.channel == ctx.channel
+
+        try:
+            await self.bot.wait_for("button_click", check=check,timeout=5)
+            await m.edit(
+                        "Bahahahahhahah",
+            components=[[
+                Button(style=ButtonStyle.blue, label="F Off",emoji="🤣", disabled=True),
+                Button(style=ButtonStyle.red, label="You simp",emoji="💢", disabled=True),
+            ]]
+            )
+        except asyncio.TimeoutError:
+            await m.edit(
+            "You Better Reply Faster",
+            components=[
+                Button(style=ButtonStyle.red, label="I Have Got Standards", disabled=True,emoji="😏"),
+            ]
+        )
 
 def setup(bot):
     bot.add_cog(Dump(bot))
