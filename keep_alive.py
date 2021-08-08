@@ -1,18 +1,14 @@
-from flask import Flask, render_template
+from flask import Flask
 from threading import Thread
 
 app = Flask('')
 
-
 @app.route('/')
 def main():
-  return render_template('index.html')
-
-
+    return "Made By Dhruv , Working Great"
 
 def run():
     app.run(host="0.0.0.0", port=8080)
-
 
 def keep_alive():
     server = Thread(target=run)

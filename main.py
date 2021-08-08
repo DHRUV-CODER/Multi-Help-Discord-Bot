@@ -150,6 +150,8 @@ async def on_ready():
         type=discord.ActivityType.watching,
         name=f"{len(set(client.users))} Members & {len(client.guilds)} Servers"
     ))
+
+  
     print('Guild Function Working')
 
 
@@ -196,6 +198,7 @@ async def die(ctx):
     await ctx.guild.leave()
 
 keep_alive.keep_alive()
+
 
 client.run(token)
 from replit import db

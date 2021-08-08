@@ -7,6 +7,9 @@ import datetime
 import io
 import time
 import requests
+import os
+my_secret = os.environ['WB_SECREAT']
+
 class CoolCmd(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -66,8 +69,10 @@ class CoolCmd(commands.Cog):
         # await ctx.message.delete()
         async with aiohttp.ClientSession() as session:
             # await ctx.channel.create_webhook(name="mywebhook")
-            webhook = Webhook.from_url('https://discord.com/api/webhooks/819154036887912449/Z4OgupTbeODUG3LbosfBuc-w8uMlbIJkdrnepUq9Jq_h2ebEHfAuZTwMXEPiZgrtO8Eh', adapter=AsyncWebhookAdapter(session))
-            await webhook.send(f'{msg} \n\n\n**Message Sent From** \n{ctx.guild.name}', username=f"{ctx.author.name}", avatar_url=ctx.author.avatar_url)
+            webhook = Webhook.from_url(f'https://discord.com/api/webhooks/855005984719896576/{my_secret}', adapter=AsyncWebhookAdapter(session))
+            msg1 = msg.replace("@everyone","everyone")
+            message = msg1.replace("@here","here")
+            await webhook.send(f'{message} \n\n\n**Message Sent From** \n{ctx.guild.name}', username=f"{ctx.author.name}", avatar_url=ctx.author.avatar_url)
                     
 def setup(bot):
     bot.add_cog(CoolCmd(bot))
