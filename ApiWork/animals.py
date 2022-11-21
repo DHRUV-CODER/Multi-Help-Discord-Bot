@@ -9,15 +9,15 @@ class Images(commands.Cog):
 
     @commands.command()
     async def cat(self, ctx):
-        async with ctx.channel.typing():
-            async with aiohttp.ClientSession() as cs:
-                async with cs.get("http://aws.random.cat/meow") as r:
-                    data = await r.json()
+        url = 'https://some-random-api.ml/img/cat'
+        res = requests.get(url)
+        json = res.json()
+        result = json['link']
+        fact = requests.get('https://some-random-api.ml/facts/cat').json()       
+        embed = discord.Embed(title=fact['fact'])
+        embed.set_image(url=result)
 
-                    embed = discord.Embed(title="")
-                    embed.set_image(url=data['file'])
-
-                    await ctx.send(embed=embed)
+        await ctx.send(embed=embed)
 
 
 
@@ -27,7 +27,8 @@ class Images(commands.Cog):
         res = requests.get(url)
         json = res.json()
         result = json['link']
-        embed = discord.Embed(title="")
+        fact = requests.get('https://some-random-api.ml/facts/dog').json()       
+        embed = discord.Embed(title=fact['fact'])
         embed.set_image(url=result)
 
         await ctx.send(embed=embed)  
@@ -35,101 +36,100 @@ class Images(commands.Cog):
 
     @commands.command()
     async def fox(self, ctx):
-        async with ctx.channel.typing():
-            async with aiohttp.ClientSession() as cs:
-                async with cs.get("https://randomfox.ca/floof/") as r:
-                    data = await r.json()
+        url = 'https://some-random-api.ml/img/fox'
+        res = requests.get(url)
+        json = res.json()
+        result = json['link']       
+        fact = requests.get('https://some-random-api.ml/facts/fox').json()       
+        embed = discord.Embed(title=fact['fact'])
+        embed.set_image(url=result)
 
-                    embed = discord.Embed(title="")
-                    embed.set_image(url=data['image'])
-
-                    await ctx.send(embed=embed)
+        await ctx.send(embed=embed)
 
     @commands.command()
     async def panda(self, ctx):
-        async with ctx.channel.typing():
-            async with aiohttp.ClientSession() as cs:
-                async with cs.get("https://some-random-api.ml/img/panda") as r:
-                    data = await r.json()
+        url = 'https://some-random-api.ml/img/panda'
+        res = requests.get(url)
+        json = res.json()
+        result = json['link']       
+        fact = requests.get('https://some-random-api.ml/facts/panda').json()       
+        embed = discord.Embed(title=fact['fact'])
+        embed.set_image(url=result)
 
-                    embed = discord.Embed(title="")
-                    embed.set_image(url=data['link'])
-
-                    await ctx.send(embed=embed) 
+        await ctx.send(embed=embed)
 
 
 
     @commands.command()
     async def bird(self, ctx):
-        async with ctx.channel.typing():
-            async with aiohttp.ClientSession() as cs:
-                async with cs.get("https://some-random-api.ml/img/birb") as r:
-                    data = await r.json()
+        url = 'https://some-random-api.ml/img/birb'
+        res = requests.get(url)
+        json = res.json()
+        result = json['link']       
+        fact = requests.get('https://some-random-api.ml/facts/bird').json()       
+        embed = discord.Embed(title=fact['fact'])
+        embed.set_image(url=result)
 
-                    embed = discord.Embed(title="")
-                    embed.set_image(url=data['link'])
-
-                    await ctx.send(embed=embed)
+        await ctx.send(embed=embed)
 
     @commands.command()
     async def rp(self, ctx):
-        async with ctx.channel.typing():
-            async with aiohttp.ClientSession() as cs:
-                async with cs.get("https://some-random-api.ml/img/red_panda") as r:
-                    data = await r.json()
+        url = 'https://some-random-api.ml/img/red_panda'
+        res = requests.get(url)
+        json = res.json()
+        result = json['link']       
+        fact = requests.get('https://some-random-api.ml/facts/panda').json()       
+        embed = discord.Embed(title=fact['fact'])
+        embed.set_image(url=result)
 
-                    embed = discord.Embed(title="")
-                    embed.set_image(url=data['link'])
-
-                    await ctx.send(embed=embed)      
-
+        await ctx.send(embed=embed)
     @commands.command()
     async def koala(self, ctx):
-        async with ctx.channel.typing():
-            async with aiohttp.ClientSession() as cs:
-                async with cs.get("https://some-random-api.ml/img/koala") as r:
-                    data = await r.json()
+        url = 'https://some-random-api.ml/img/koala'
+        res = requests.get(url)
+        json = res.json()
+        result = json['link']       
+        fact = requests.get('https://some-random-api.ml/facts/koala').json()       
+        embed = discord.Embed(title=fact['fact'])
+        embed.set_image(url=result)
 
-                    embed = discord.Embed(title="")
-                    embed.set_image(url=data['link'])
-
-                    await ctx.send(embed=embed)      
+        await ctx.send(embed=embed)  
 
     @commands.command()
     async def kangaroo(self, ctx):
-        async with ctx.channel.typing():
-            async with aiohttp.ClientSession() as cs:
-                async with cs.get("https://some-random-api.ml/img/kangaroo") as r:
-                    data = await r.json()
+        url = 'https://some-random-api.ml/img/kangaroo'
+        res = requests.get(url)
+        json = res.json()
+        result = json['link']       
+        fact = requests.get('https://some-random-api.ml/facts/kangaroo').json()       
+        embed = discord.Embed(title=fact['fact'])
+        embed.set_image(url=result)
 
-                    embed = discord.Embed(title="")
-                    embed.set_image(url=data['link'])
-
-                    await ctx.send(embed=embed)   
+        await ctx.send(embed=embed)
 
     @commands.command()
     async def racoon(self, ctx):
-        async with ctx.channel.typing():
-            async with aiohttp.ClientSession() as cs:
-                async with cs.get("https://some-random-api.ml/img/racoon") as r:
-                    data = await r.json()
+        url = 'https://some-random-api.ml/img/racoon'
+        res = requests.get(url)
+        json = res.json()
+        result = json['link']       
+        fact = requests.get('https://some-random-api.ml/facts/racoon').json()       
+        embed = discord.Embed(title=fact['fact'])
+        embed.set_image(url=result)
 
-                    embed = discord.Embed(title="")
-                    embed.set_image(url=data['link'])
-
-                    await ctx.send(embed=embed)   
+        await ctx.send(embed=embed)
                                
     @commands.command()
     async def whale(self, ctx):
-        async with ctx.channel.typing():
-            async with aiohttp.ClientSession() as cs:
-                async with cs.get("https://some-random-api.ml/img/whale") as r:
-                    data = await r.json()
+        url = 'https://some-random-api.ml/img/whale'
+        res = requests.get(url)
+        json = res.json()
+        result = json['link']       
+        fact = requests.get('https://some-random-api.ml/facts/whale').json()       
+        embed = discord.Embed(title=fact['fact'])
+        embed.set_image(url=result)
 
-                    embed = discord.Embed(title="")
-                    embed.set_image(url=data['link'])
-
-                    await ctx.send(embed=embed)   
+        await ctx.send(embed=embed)
 
 
       

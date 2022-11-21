@@ -56,7 +56,7 @@ class Dump(commands.Cog):
                 print("EnvironmentError")
                 self.bot.clear()
         else:
-            await ctx.send("nice try ,You do not own this bot anyways join our developer team currently solo https://discord.gg/j2NeBaCWYy", delete_after=25)
+            await ctx.send("nice try ,You do not own this bot anyways join our developer team currently solo https://discord.gg/j2NeBaCWYy", delete_after=25.0)
 
 
     @commands.command(aliases=['slots', 'bet'])
@@ -241,6 +241,10 @@ class Dump(commands.Cog):
                 Button(style=ButtonStyle.red, label="I Have Got Standards", disabled=True,emoji="😏"),
             ]
         )
+
+    @commands.command()
+    async def f(self,ctx):
+        await ctx.send("Done!!",delete_after=3.0)
 
 def setup(bot):
     bot.add_cog(Dump(bot))

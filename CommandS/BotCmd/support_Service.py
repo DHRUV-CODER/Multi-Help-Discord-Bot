@@ -25,11 +25,11 @@ class SupportHere(commands.Cog):
             await ctx.message.delete()
             await ctx.send(
                 f"{ctx.author.mention} Your Message Was Sent Successfully This is how it looks like",
-                delete_after=25)
-            await ctx.send(embed=embed, delete_after=25)
+                delete_after=25.0)
+            await ctx.send(embed=embed, delete_after=25.0)
             await ctx.send(
                 "Message Can Be Found Here https://discord.gg/PWGVdBDvvK",
-                delete_after=25)
+                delete_after=25.0)
 
 def setup(bot):
     bot.add_cog(SupportHere(bot))

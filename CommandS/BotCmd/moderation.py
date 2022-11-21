@@ -50,7 +50,7 @@ class Moderation(commands.Cog):
         embed = discord.Embed(title="Clear Command Used ",
                               description=f"{ctx.author.mention}")
         embed.add_field(name="Message Deleted", value=f"{amount}", inline=True)
-        await ctx.send(embed=embed, delete_after=10)
+        await ctx.send(embed=embed, delete_after=10.0)
         # await ctx.message.delete()
 
 

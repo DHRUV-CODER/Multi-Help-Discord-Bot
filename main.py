@@ -13,7 +13,7 @@ import random
 import time
 from discord.ext.commands import when_mentioned_or
 from prsaw import RandomStuff
-from discord_components import DiscordComponents, Button, ButtonStyle, InteractionType
+# from discord_components import DiscordComponents, Button, ButtonStyle, InteractionType
 import asyncio 
 rs = RandomStuff(async_mode=True)
 intents = discord.Intents(messages=True,

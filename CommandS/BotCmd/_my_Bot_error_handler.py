@@ -17,7 +17,7 @@ class FkError(commands.Cog):
             embed.add_field(name='User', value=ctx.author.mention)
             embed.add_field(name='Message', value=ctx.message.clean_content)
             embed.timestamp = datetime.datetime.utcnow()
-            await ctx.send(embed=embed,delete_after=25)
+            await ctx.send(embed=embed,delete_after=25.0)
             await ctx.message.delete()
         # elif isinstance(error, commands.CommandNotFound):
         #     embed = discord.Embed(title=':x: Command Error', colour=0x992d22)
@@ -27,7 +27,7 @@ class FkError(commands.Cog):
         #     embed.add_field(name='User', value=ctx.author.mention)
         #     embed.add_field(name='Message', value=ctx.message.clean_content)
         #     embed.timestamp = datetime.datetime.utcnow()
-        #     await ctx.send(embed=embed,delete_after=25)
+        #     await ctx.send(embed=embed,delete_after=25.0)
         #     await ctx.message.delete()
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(title=':x: Command Error', colour=0x992d22)
@@ -37,7 +37,7 @@ class FkError(commands.Cog):
             embed.add_field(name='User', value=ctx.author.mention)
             embed.add_field(name='Message', value=ctx.message.clean_content)
             embed.timestamp = datetime.datetime.utcnow()
-            await ctx.send(embed=embed,delete_after=25)
+            await ctx.send(embed=embed,delete_after=25.0)
             await ctx.message.delete()
         elif isinstance(error, commands.MissingRole):
             embed = discord.Embed(title=':x: Command Error', colour=0x992d22)
@@ -47,10 +47,10 @@ class FkError(commands.Cog):
             embed.add_field(name='User', value=ctx.author.mention)
             embed.add_field(name='Message', value=ctx.message.clean_content)
             embed.timestamp = datetime.datetime.utcnow()
-            await ctx.send(embed=embed,delete_after=25)
+            await ctx.send(embed=embed,delete_after=25.0)
             await ctx.message.delete()
-        # elif isinstance(error, commands.CommandInvokeError):   
-        #   await ctx.send(f"```fix\n-{error}\n```")         
+        elif isinstance(error, commands.CommandInvokeError):   
+          await ctx.send(f"```fix\n-{error}\n```")         
         elif isinstance(error, commands.CommandOnCooldown):
           # await ctx.send(f"{error} ")
           cooldown_time = str(datetime.timedelta(seconds=math.trunc(error.retry_after)))
